@@ -48,7 +48,7 @@
           }
         }
       ],
-      "_postman_id": "96194b57-cdea-41d1-9d94-393a3d7f7231",
+      "id": "96194b57-cdea-41d1-9d94-393a3d7f7231",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -124,7 +124,7 @@
           }
         }
       ],
-      "_postman_id": "933cb4a6-150f-494e-8f52-67bf80a09de1",
+      "id": "933cb4a6-150f-494e-8f52-67bf80a09de1",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -143,8 +143,7 @@
           "variable": [
             {
               "key": "username",
-              "value": "{{username}}",
-              "type": "string"
+              "value": "{{username}}"
             }
           ]
         }
@@ -194,7 +193,7 @@
           }
         }
       ],
-      "_postman_id": "c62cdb36-af5a-439f-8a90-6f0235b82e38",
+      "id": "c62cdb36-af5a-439f-8a90-6f0235b82e38",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -228,8 +227,7 @@
             {
               "key": "username",
               "value": "{{username}}",
-              "description": "(Required) name that need to be updated",
-              "type": "string"
+              "description": "(Required) name that need to be updated"
             }
           ]
         },
@@ -293,7 +291,7 @@
           }
         }
       ],
-      "_postman_id": "d5509b1d-51b5-41ab-945f-216bd3d8549d",
+      "id": "d5509b1d-51b5-41ab-945f-216bd3d8549d",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -312,8 +310,7 @@
           "variable": [
             {
               "key": "username",
-              "value": "{{username}}",
-              "type": "string"
+              "value": "{{username}}"
             }
           ]
         }
@@ -334,9 +331,19 @@
             ],
             "type": "text/javascript"
           }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "50131245-f2d1-4a86-b7e8-a46f50bc4a3a",
+            "exec": [
+              "setTimeout(()=>{}, 2000);"
+            ],
+            "type": "text/javascript"
+          }
         }
       ],
-      "_postman_id": "9ca991e3-4dbb-497c-ad77-f04280a5a9b9",
+      "id": "9ca991e3-4dbb-497c-ad77-f04280a5a9b9",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -356,8 +363,7 @@
             {
               "key": "username",
               "value": "{{username}}",
-              "description": "(Required) The name that needs to be deleted",
-              "type": "string"
+              "description": "(Required) The name that needs to be deleted"
             }
           ]
         },
@@ -391,7 +397,7 @@
           }
         }
       ],
-      "_postman_id": "72fdbd22-35f8-4447-a672-393ffe190df1",
+      "id": "72fdbd22-35f8-4447-a672-393ffe190df1",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
       },
@@ -410,8 +416,7 @@
           "variable": [
             {
               "key": "username",
-              "value": "{{username}}",
-              "type": "string"
+              "value": "{{username}}"
             }
           ]
         }
@@ -443,58 +448,50 @@
   ],
   "variable": [
     {
-      "id": "faebd297-ce48-43a2-977d-51a32b01d691",
+      "id": "e567529b-d9ff-461a-a22f-1c19eae2ffce",
       "key": "baseUrl",
       "value": "https://petstore.swagger.io/v2",
       "type": "string"
     },
     {
-      "id": "1614e313-fa03-424f-a014-4410dbf26386",
+      "id": "578c46f4-0640-4d5e-b038-91d13154b355",
       "key": "id",
-      "value": "",
-      "type": "string"
+      "value": ""
     },
     {
-      "id": "1b8b7311-cc52-41fc-b309-1292f8a5386f",
+      "id": "5844ce90-7abe-4289-9057-6882f8998f25",
       "key": "username",
-      "value": "",
-      "type": "string"
+      "value": ""
     },
     {
-      "id": "5964a135-9832-414d-9789-d097893712f2",
+      "id": "01489951-2b6f-450b-a32a-ec0cf5daeb11",
       "key": "firstName",
-      "value": "",
-      "type": "string"
+      "value": ""
     },
     {
-      "id": "fdabd88a-97f0-4f20-afe1-85ec7f5d2401",
+      "id": "fcb6e701-0322-4f72-a26c-2dc8abcb9ccc",
       "key": "lastName",
-      "value": "",
-      "type": "string"
+      "value": ""
     },
     {
-      "id": "889d7dc7-227b-47af-aa3a-aed25a709f64",
+      "id": "74d021b1-0329-4383-95cd-8d4c5d9edcd1",
       "key": "email",
-      "value": "",
-      "type": "string"
+      "value": ""
     },
     {
-      "id": "8be005e3-3a42-4ca2-9101-00b8d5172f4a",
+      "id": "c21e3aee-91f5-4341-bb26-5882e4a7768a",
       "key": "password",
-      "value": "",
-      "type": "string"
+      "value": ""
     },
     {
-      "id": "c1f30ddd-690f-48b5-9f3e-6e057b1dcbb4",
+      "id": "985b5f1e-4f70-42af-aead-8b366067322d",
       "key": "phone",
-      "value": "",
-      "type": "string"
+      "value": ""
     },
     {
-      "id": "a062dedb-a10c-4c49-9740-d8324746ac98",
+      "id": "1a479b7f-cda2-484a-9541-a53b6862baec",
       "key": "userStatus",
-      "value": "",
-      "type": "string"
+      "value": ""
     }
   ]
 }
