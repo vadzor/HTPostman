@@ -175,9 +175,7 @@
               "\r",
               "pm.test(\"Responce returns correct user ID\", ()=> {\r",
               "    pm.expect(jsonData.message).to.eql(validId)\r",
-              "});\r",
-              "\r",
-              "// postman.setNextRequest(\"Get created user by username\");"
+              "});"
             ],
             "type": "text/javascript"
           }
@@ -448,48 +446,48 @@
   ],
   "variable": [
     {
-      "id": "54e6a92d-52a1-43d6-943d-b94f61f83dd2",
+      "id": "aebe1571-cce9-4391-a239-7bb3aecff791",
       "key": "baseUrl",
       "value": "https://petstore.swagger.io/v2",
       "type": "string"
     },
     {
-      "id": "096b37b7-719a-4d56-9e68-a3cd71d6c22f",
+      "id": "359c8df7-c59c-4be3-a6fb-81d183a479a3",
       "key": "id",
       "value": ""
     },
     {
-      "id": "9ed604c2-334e-400f-88b8-12e8fc82bf74",
+      "id": "171a385e-8fa0-499c-b53f-d27189674164",
       "key": "username",
       "value": ""
     },
     {
-      "id": "f9667c44-5295-4730-bb33-8aa2b3eef1a1",
+      "id": "057838c2-f602-41ac-8cc1-a4207a69f84a",
       "key": "firstName",
       "value": ""
     },
     {
-      "id": "8cf2537e-da0a-4577-ba7f-10b6af033055",
+      "id": "872b7d58-af77-4e41-8fbb-3ad2b44c0d20",
       "key": "lastName",
       "value": ""
     },
     {
-      "id": "34c9ad30-601a-4372-9c80-f1e345412931",
+      "id": "7fdca969-fe84-46f2-98a7-9ee4ae8c86f7",
       "key": "email",
       "value": ""
     },
     {
-      "id": "5675633e-bbdd-48aa-af45-3b53c408c6a3",
+      "id": "57a53b86-169e-4859-8a3c-1c8493839cad",
       "key": "password",
       "value": ""
     },
     {
-      "id": "a6e2a9be-8ee8-4c73-90a5-c400b61768ce",
+      "id": "78e7418f-46a2-4018-9028-e6c5d29b2825",
       "key": "phone",
       "value": ""
     },
     {
-      "id": "864fb581-29f0-44cc-bc4d-b71b806875c8",
+      "id": "428b21d7-1f29-4a88-96f4-91c48fbcbad6",
       "key": "userStatus",
       "value": ""
     }
