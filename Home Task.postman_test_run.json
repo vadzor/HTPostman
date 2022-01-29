@@ -1,0 +1,324 @@
+{
+	"id": "8d19752d-73a5-488c-bfe4-6ac02d68bd44",
+	"name": "Home Task",
+	"timestamp": "2022-01-29T15:55:09.752Z",
+	"collection_id": "19310241-926a3838-c72a-4dea-a17d-6e0d8ee631bc",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 26,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "96194b57-cdea-41d1-9d94-393a3d7f7231",
+			"name": "Create new User",
+			"url": "https://petstore.swagger.io/v2/user",
+			"time": 117,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful user creation. Code is 200": true,
+				"Responce returns code: 200": true,
+				"Responce returns correct user ID": true
+			},
+			"testPassFailCounts": {
+				"Successful user creation. Code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Responce returns code: 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Responce returns correct user ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				117
+			],
+			"allTests": [
+				{
+					"Successful user creation. Code is 200": true,
+					"Responce returns code: 200": true,
+					"Responce returns correct user ID": true
+				}
+			]
+		},
+		{
+			"id": "933cb4a6-150f-494e-8f52-67bf80a09de1",
+			"name": "Get created user by username",
+			"url": "https://petstore.swagger.io/v2/user/Berta78",
+			"time": 178,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"User id setted properly": true,
+				"User username setted properly": true,
+				"User firstName setted properly": true,
+				"User lastName setted properly": true,
+				"User email setted properly": true,
+				"User password setted properly": true,
+				"User phone setted properly": true,
+				"User userStatus setted properly": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User id setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User username setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User firstName setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User lastName setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User email setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User password setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User phone setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User userStatus setted properly": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				178
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"User id setted properly": true,
+					"User username setted properly": true,
+					"User firstName setted properly": true,
+					"User lastName setted properly": true,
+					"User email setted properly": true,
+					"User password setted properly": true,
+					"User phone setted properly": true,
+					"User userStatus setted properly": true
+				}
+			]
+		},
+		{
+			"id": "c62cdb36-af5a-439f-8a90-6f0235b82e38",
+			"name": "Update user's firstName and lastName",
+			"url": "https://petstore.swagger.io/v2/user/Berta78",
+			"time": 114,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Responce returns code: 200": true,
+				"Responce returns correct user ID": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Responce returns code: 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Responce returns correct user ID": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Responce returns code: 200": true,
+					"Responce returns correct user ID": true
+				}
+			]
+		},
+		{
+			"id": "d5509b1d-51b5-41ab-945f-216bd3d8549d",
+			"name": "Get updated user by username",
+			"url": "https://petstore.swagger.io/v2/user/Berta78",
+			"time": 117,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"User id setted properly": true,
+				"User username setted properly": true,
+				"User firstName setted properly": true,
+				"User lastName setted properly": true,
+				"User email setted properly": true,
+				"User password setted properly": true,
+				"User phone setted properly": true,
+				"User userStatus setted properly": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User id setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User username setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User firstName setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User lastName setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User email setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User password setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User phone setted properly": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User userStatus setted properly": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				117
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"User id setted properly": true,
+					"User username setted properly": true,
+					"User firstName setted properly": true,
+					"User lastName setted properly": true,
+					"User email setted properly": true,
+					"User password setted properly": true,
+					"User phone setted properly": true,
+					"User userStatus setted properly": true
+				}
+			]
+		},
+		{
+			"id": "9ca991e3-4dbb-497c-ad77-f04280a5a9b9",
+			"name": "Delete user",
+			"url": "https://petstore.swagger.io/v2/user/Berta78",
+			"time": 179,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				179
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "72fdbd22-35f8-4447-a672-393ffe190df1",
+			"name": "Get deleted user by username",
+			"url": "https://petstore.swagger.io/v2/user/Berta78",
+			"time": 175,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				175
+			],
+			"allTests": [
+				{
+					"Status code is 404": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 880,
+	"collection": {
+		"requests": [
+			{
+				"id": "96194b57-cdea-41d1-9d94-393a3d7f7231",
+				"method": "POST"
+			},
+			{
+				"id": "933cb4a6-150f-494e-8f52-67bf80a09de1",
+				"method": "GET"
+			},
+			{
+				"id": "c62cdb36-af5a-439f-8a90-6f0235b82e38",
+				"method": "PUT"
+			},
+			{
+				"id": "d5509b1d-51b5-41ab-945f-216bd3d8549d",
+				"method": "GET"
+			},
+			{
+				"id": "9ca991e3-4dbb-497c-ad77-f04280a5a9b9",
+				"method": "DELETE"
+			},
+			{
+				"id": "72fdbd22-35f8-4447-a672-393ffe190df1",
+				"method": "GET"
+			}
+		]
+	}
+}
