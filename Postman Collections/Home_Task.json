@@ -1,0 +1,500 @@
+{
+  "info": {
+    "_postman_id": "926a3838-c72a-4dea-a17d-6e0d8ee631bc",
+    "name": "Home Task",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create new User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "c1687b92-357c-4a4e-b35f-f6391eb8fd38",
+            "exec": [
+              "pm.test(\"Successful user creation. Code is 200\", ()=> {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "var jsonRequest = JSON.parse(request.data);\r",
+              "var validId = jsonRequest.id.toString();\r",
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "Object.entries(jsonRequest).forEach((entry) => {\r",
+              "  const [key, value] = entry;\r",
+              "  pm.collectionVariables.set(key, value);\r",
+              "});\r",
+              " \r",
+              "pm.test(\"Responce returns code: 200\", ()=> {\r",
+              "    pm.expect(jsonData.code).to.eql(200) \r",
+              "});\r",
+              "\r",
+              "pm.test(\"Responce returns correct user ID\", ()=> {\r",
+              "    pm.expect(jsonData.message).to.eql(validId)\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "bcd976e4-e081-4167-a18a-515c7e7711f1",
+            "exec": [
+              "setTimeout(()=>{}, 2000);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "96194b57-cdea-41d1-9d94-393a3d7f7231",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": {{$randomInt}},\r\n    \"username\": \"{{$randomUserName}}\",\r\n    \"firstName\": \"{{$randomFirstName}}\",\r\n    \"lastName\": \"{{$randomLastName}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"password\": \"{{$randomPassword}}\",\r\n    \"phone\": \"{{$randomPhoneNumber}}\",\r\n    \"userStatus\": {{$randomInt}}\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/user"
+      },
+      "response": []
+    },
+    {
+      "name": "Get created user by username",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "49dcdd12-93d6-48d0-bea1-de78603f16d5",
+            "exec": [
+              "var expectedHttpStatus = 200;\r",
+              "var maxNumberOfTries = 3;\r",
+              "var sleepBetweenTries = 5000;\r",
+              "\r",
+              "if (!pm.environment.get(\"collection_tries\")) {\r",
+              "    pm.environment.set(\"collection_tries\", 1);\r",
+              "}\r",
+              "\r",
+              "if ((pm.response.code != expectedHttpStatus) && (pm.environment.get(\"collection_tries\") < maxNumberOfTries)) {\r",
+              "     var tries = parseInt(pm.environment.get(\"collection_tries\"), 10);\r",
+              "     pm.environment.set(\"collection_tries\", tries + 1);\r",
+              "     setTimeout(()=> {}, sleepBetweenTries);\r",
+              "     postman.setNextRequest(request.name);\r",
+              "} else {\r",
+              "    pm.environment.unset(\"collection_tries\");\r",
+              "\r",
+              "    pm.test(\"Status code is \" + expectedHttpStatus, ()=> {\r",
+              "        pm.response.to.have.status(expectedHttpStatus);\r",
+              "    });\r",
+              "\r",
+              "    var jsonData = pm.response.json();\r",
+              "\r",
+              "    Object.entries(jsonData).forEach((entry) => {\r",
+              "    const [key] = entry;\r",
+              "\r",
+              "        pm.test(\"User \"+ key + \" setted properly\", ()=>{\r",
+              "            pm.expect(jsonData[key]).to.eql(pm.variables.get(key))\r",
+              "        });\r",
+              "    });\r",
+              "}\r",
+              "\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "f1ee2b67-79ca-4209-bf99-316263cbd7c8",
+            "exec": [
+              "setTimeout(()=>{}, 8000);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "933cb4a6-150f-494e-8f52-67bf80a09de1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/user/:username",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "user",
+            ":username"
+          ],
+          "variable": [
+            {
+              "key": "username",
+              "value": "{{username}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update user's firstName and lastName",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "fb035577-27b6-4d53-b6f2-e4cf688f9094",
+            "exec": [
+              "pm.test(\"Status code is 200\", ()=> {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "var jsonRequest = JSON.parse(request.data);\r",
+              "var validId = jsonRequest.id.toString();\r",
+              "var jsonData = pm.response.json();\r",
+              "\r",
+              "pm.collectionVariables.set(\"firstName\", jsonRequest.firstName);\r",
+              "pm.collectionVariables.set(\"lastName\", jsonRequest.lastName);\r",
+              "\r",
+              "pm.test(\"Responce returns code: 200\", ()=> {\r",
+              "    pm.expect(jsonData.code).to.eql(200) \r",
+              "});\r",
+              "\r",
+              "pm.test(\"Responce returns correct user ID\", ()=> {\r",
+              "    pm.expect(jsonData.message).to.eql(validId)\r",
+              "});\r",
+              "\r",
+              "// postman.setNextRequest(\"Get created user by username\");"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "1d64049f-e22b-4b08-a156-a402bf4a44a2",
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "c62cdb36-af5a-439f-8a90-6f0235b82e38",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": {{id}},\n    \"username\": \"{{username}}\",\n    \"firstName\": \"{{$randomFirstName}}\",\n    \"lastName\": \"{{$randomLastName}}\",\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\",\n    \"phone\": \"{{phone}}\",\n    \"userStatus\": {{userStatus}}\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/user/:username",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "user",
+            ":username"
+          ],
+          "variable": [
+            {
+              "key": "username",
+              "value": "{{username}}",
+              "description": "(Required) name that need to be updated",
+              "type": "string"
+            }
+          ]
+        },
+        "description": "This can only be done by the logged in user."
+      },
+      "response": []
+    },
+    {
+      "name": "Get updated user by username",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "997e1f18-6b83-447d-963c-12c8c9d0430a",
+            "exec": [
+              "var expectedHttpStatus = 200;\r",
+              "var maxNumberOfTries = 3;\r",
+              "var sleepBetweenTries = 5000;\r",
+              "\r",
+              "if (!pm.environment.get(\"collection_tries\")) {\r",
+              "    pm.environment.set(\"collection_tries\", 1);\r",
+              "}\r",
+              "\r",
+              "if ((pm.response.code != expectedHttpStatus) && (pm.environment.get(\"collection_tries\") < maxNumberOfTries)) {\r",
+              "     var tries = parseInt(pm.environment.get(\"collection_tries\"), 10);\r",
+              "     pm.environment.set(\"collection_tries\", tries + 1);\r",
+              "     setTimeout(()=> {}, sleepBetweenTries);\r",
+              "     postman.setNextRequest(request.name);\r",
+              "} else {\r",
+              "    pm.environment.unset(\"collection_tries\");\r",
+              "\r",
+              "    pm.test(\"Status code is \" + expectedHttpStatus, ()=> {\r",
+              "        pm.response.to.have.status(expectedHttpStatus);\r",
+              "    });\r",
+              "\r",
+              "    var jsonData = pm.response.json();\r",
+              "\r",
+              "    Object.entries(jsonData).forEach((entry) => {\r",
+              "    const [key] = entry;\r",
+              "\r",
+              "        pm.test(\"User \"+ key + \" setted properly\", ()=>{\r",
+              "            pm.expect(jsonData[key]).to.eql(pm.variables.get(key))\r",
+              "        });\r",
+              "    });\r",
+              "}\r",
+              "\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "a42369a8-1135-4ab7-8ca0-00a0d1524958",
+            "exec": [
+              "setTimeout(()=>{}, 8000);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "d5509b1d-51b5-41ab-945f-216bd3d8549d",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/user/:username",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "user",
+            ":username"
+          ],
+          "variable": [
+            {
+              "key": "username",
+              "value": "{{username}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete user",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "267e54b1-57f0-4c58-8c17-cbbc9301e000",
+            "exec": [
+              "pm.test(\"Status code is 200\", ()=> {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "9ca991e3-4dbb-497c-ad77-f04280a5a9b9",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/user/:username",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "user",
+            ":username"
+          ],
+          "variable": [
+            {
+              "key": "username",
+              "value": "{{username}}",
+              "description": "(Required) The name that needs to be deleted",
+              "type": "string"
+            }
+          ]
+        },
+        "description": "This can only be done by the logged in user."
+      },
+      "response": []
+    },
+    {
+      "name": "Get deleted user by username",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "92d43c86-6ba5-41aa-bf76-1a6f21bdd457",
+            "exec": [
+              "pm.test(\"Status code is 404\", ()=> {\r",
+              "    pm.response.to.have.status(404) || pm.expect(pm.response.json.id).to.not.eql(pm.collectionVariables.get(\"id\"));\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "c35b2ee9-1f54-4717-b792-731e15982088",
+            "exec": [
+              "setTimeout(()=>{}, 8000);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "72fdbd22-35f8-4447-a672-393ffe190df1",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/user/:username",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "user",
+            ":username"
+          ],
+          "variable": [
+            {
+              "key": "username",
+              "value": "{{username}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "c11a8cae-75d4-4b7d-bbfb-49a1796bbf73",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "6d57a051-4072-410a-bb21-df9d33c2351f",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "faebd297-ce48-43a2-977d-51a32b01d691",
+      "key": "baseUrl",
+      "value": "https://petstore.swagger.io/v2",
+      "type": "string"
+    },
+    {
+      "id": "1614e313-fa03-424f-a014-4410dbf26386",
+      "key": "id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "id": "1b8b7311-cc52-41fc-b309-1292f8a5386f",
+      "key": "username",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "id": "5964a135-9832-414d-9789-d097893712f2",
+      "key": "firstName",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "id": "fdabd88a-97f0-4f20-afe1-85ec7f5d2401",
+      "key": "lastName",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "id": "889d7dc7-227b-47af-aa3a-aed25a709f64",
+      "key": "email",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "id": "8be005e3-3a42-4ca2-9101-00b8d5172f4a",
+      "key": "password",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "id": "c1f30ddd-690f-48b5-9f3e-6e057b1dcbb4",
+      "key": "phone",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "id": "a062dedb-a10c-4c49-9740-d8324746ac98",
+      "key": "userStatus",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
