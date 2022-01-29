@@ -69,6 +69,81 @@
       "response": []
     },
     {
+      "name": "Logs user into the system",
+      "id": "d70d81d8-3ec3-44df-b961-2befcbd7e5c7",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/user/login?username=laboris&password=laboris",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "user",
+            "login"
+          ],
+          "query": [
+            {
+              "key": "username",
+              "value": "laboris",
+              "description": "(Required) The user name for login"
+            },
+            {
+              "key": "password",
+              "value": "laboris",
+              "description": "(Required) The password for login in clear text"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "ffcf6600-8c94-44d5-be50-60469a7f923f",
+          "name": "Invalid username/password supplied",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/user/login?username=laboris&password=laboris",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user",
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "laboris"
+                },
+                {
+                  "key": "password",
+                  "value": "laboris"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "text",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": ""
+        }
+      ]
+    },
+    {
       "name": "Get created user by username",
       "event": [
         {
@@ -414,133 +489,6 @@
         }
       },
       "response": []
-    },
-    {
-      "name": "Logs user into the system",
-      "id": "d70d81d8-3ec3-44df-b961-2befcbd7e5c7",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseUrl}}/user/login?username=laboris&password=laboris",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "user",
-            "login"
-          ],
-          "query": [
-            {
-              "key": "username",
-              "value": "laboris",
-              "description": "(Required) The user name for login"
-            },
-            {
-              "key": "password",
-              "value": "laboris",
-              "description": "(Required) The password for login in clear text"
-            }
-          ]
-        }
-      },
-      "response": [
-        {
-          "id": "342a5e33-7484-4d0c-81ef-5b9422d128a9",
-          "name": "successful operation",
-          "originalRequest": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/user/login?username=laboris&password=laboris",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "user",
-                "login"
-              ],
-              "query": [
-                {
-                  "key": "username",
-                  "value": "laboris"
-                },
-                {
-                  "key": "password",
-                  "value": "laboris"
-                }
-              ]
-            }
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "disabled": false,
-              "description": "date in UTC when token expires",
-              "key": "X-Expires-After",
-              "value": "1961-02-11T20:56:08.254Z"
-            },
-            {
-              "disabled": false,
-              "description": "calls per hour allowed by the user",
-              "key": "X-Rate-Limit",
-              "value": "-71571605"
-            },
-            {
-              "key": "Content-Type",
-              "value": "application/json"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": "\"laboris\""
-        },
-        {
-          "id": "ffcf6600-8c94-44d5-be50-60469a7f923f",
-          "name": "Invalid username/password supplied",
-          "originalRequest": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/user/login?username=laboris&password=laboris",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "user",
-                "login"
-              ],
-              "query": [
-                {
-                  "key": "username",
-                  "value": "laboris"
-                },
-                {
-                  "key": "password",
-                  "value": "laboris"
-                }
-              ]
-            }
-          },
-          "status": "Bad Request",
-          "code": 400,
-          "_postman_previewlanguage": "text",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "text/plain"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": ""
-        }
-      ]
     }
   ],
   "event": [
@@ -567,48 +515,48 @@
   ],
   "variable": [
     {
-      "id": "b836c39a-56e0-4545-9968-78a53110e3b4",
+      "id": "75903d8a-9d53-453d-a13d-7ce3baebe2e0",
       "key": "baseUrl",
       "value": "https://petstore.swagger.io/v2",
       "type": "string"
     },
     {
-      "id": "0677e2c1-82b3-4b60-9c6f-b4ffafe5de4c",
+      "id": "8e4228d0-a9aa-4d80-92b4-9ab1db6c1c4b",
       "key": "id",
       "value": ""
     },
     {
-      "id": "f8e20159-3e9a-49c7-9ed6-77c2cf406e10",
+      "id": "f3fcfd5d-de28-4de4-9f3c-9883242fc480",
       "key": "username",
       "value": ""
     },
     {
-      "id": "b63f03a0-3da3-4b5d-97e7-eb4716d5e83e",
+      "id": "1a73725a-f119-4a4d-9e15-39f55ec431c5",
       "key": "firstName",
       "value": ""
     },
     {
-      "id": "e3031664-ef7e-44e9-a814-72dd55350a70",
+      "id": "4281a5e6-297f-4a96-97d3-3633dce23359",
       "key": "lastName",
       "value": ""
     },
     {
-      "id": "d3e6d11c-e41a-4b13-89e4-e7b56e4db6fe",
+      "id": "488236cf-8b9b-4964-bb55-33fd08e7faf9",
       "key": "email",
       "value": ""
     },
     {
-      "id": "8ba1b88e-5517-426c-8c42-d433135a80f4",
+      "id": "c29df126-c20e-4e0b-9b08-841a4abd7283",
       "key": "password",
       "value": ""
     },
     {
-      "id": "333011fa-35b7-4ec3-b685-ac7e8206a2c0",
+      "id": "2b01bf48-e681-49b0-8044-6d6788420e22",
       "key": "phone",
       "value": ""
     },
     {
-      "id": "57265031-64ec-4601-bb4f-faf1affaba88",
+      "id": "39f294d1-a7f4-4186-999d-274be0c0cda0",
       "key": "userStatus",
       "value": ""
     }
