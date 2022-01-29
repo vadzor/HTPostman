@@ -100,48 +100,7 @@
           ]
         }
       },
-      "response": [
-        {
-          "id": "ffcf6600-8c94-44d5-be50-60469a7f923f",
-          "name": "Invalid username/password supplied",
-          "originalRequest": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/user/login?username=laboris&password=laboris",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "user",
-                "login"
-              ],
-              "query": [
-                {
-                  "key": "username",
-                  "value": "laboris"
-                },
-                {
-                  "key": "password",
-                  "value": "laboris"
-                }
-              ]
-            }
-          },
-          "status": "Bad Request",
-          "code": 400,
-          "_postman_previewlanguage": "text",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "text/plain"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": ""
-        }
-      ]
+      "response": []
     },
     {
       "name": "Get created user by username",
@@ -515,48 +474,48 @@
   ],
   "variable": [
     {
-      "id": "b728f731-ee5e-44e6-ac46-16f2849a8e28",
+      "id": "30a40c4a-47b1-4e3a-97aa-e651f95c2f23",
       "key": "baseUrl",
       "value": "https://petstore.swagger.io/v2",
       "type": "string"
     },
     {
-      "id": "92e96bc4-c664-4ce1-86b6-342b13c34399",
+      "id": "5a82951a-ebaa-48ee-a92b-7b161c5a7171",
       "key": "id",
       "value": ""
     },
     {
-      "id": "19922fa3-7c11-4f10-ab00-5cfeeb02740a",
+      "id": "ff7bdcdb-ccd1-47f1-b1cd-a3e82e97a231",
       "key": "username",
       "value": ""
     },
     {
-      "id": "f69f14ed-55a9-4494-b784-bd82a128ae4d",
+      "id": "1e79e6fd-a8ff-4974-b554-bc17106ba3e9",
       "key": "firstName",
       "value": ""
     },
     {
-      "id": "6b4dfe45-6be3-436b-8e30-d68325790204",
+      "id": "adaa9506-00b9-4c72-9ecf-348333a4abe8",
       "key": "lastName",
       "value": ""
     },
     {
-      "id": "b257ef6e-146c-4037-90e3-e3d43bfa7e26",
+      "id": "ca678a80-701e-466a-b420-e7e450894e57",
       "key": "email",
       "value": ""
     },
     {
-      "id": "8ffa4da8-df64-46aa-b457-b49e9856bbd6",
+      "id": "4ec46286-dc33-44a8-bba7-c5731ec95fe9",
       "key": "password",
       "value": ""
     },
     {
-      "id": "60479c05-8248-464b-bfc6-af83f542eca5",
+      "id": "2d0ff216-cd6b-413d-beb8-e265461377f9",
       "key": "phone",
       "value": ""
     },
     {
-      "id": "4cd719cc-9b95-4616-8d21-895d54f15d32",
+      "id": "e42be475-96a7-4762-b8c4-40960ac51081",
       "key": "userStatus",
       "value": ""
     }
