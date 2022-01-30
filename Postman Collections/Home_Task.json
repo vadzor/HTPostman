@@ -254,6 +254,15 @@
               "\r",
               "pm.test(\"Responce returns correct user ID\", ()=> {\r",
               "    pm.expect(jsonData.message).to.eql(validId)\r",
+              "});\r",
+              "\r",
+              "setTimeout(()=>{}, 3000);\r",
+              "pm.test(\"Logs out current user\", ()=> {\r",
+              "    pm.sendRequest(pm.collectionVariables.get(\"baseUrl\") + '/user/logout', (err, res)=> {\r",
+              "        pm.expect(err).to.not.be.ok;\r",
+              "        pm.expect(res).to.have.property('code', 200);\r",
+              "        pm.expect(res).to.have.property('status', 'OK');\r",
+              "    });\r",
               "});"
             ],
             "type": "text/javascript"
@@ -551,48 +560,48 @@
   ],
   "variable": [
     {
-      "id": "fec5a17b-8c01-4f8d-9f6b-ea48089a04fb",
+      "id": "9a4dc422-6c74-4622-8544-09fe2a233109",
       "key": "baseUrl",
       "value": "https://petstore.swagger.io/v2",
       "type": "string"
     },
     {
-      "id": "6c5f9463-74fc-47cf-a96e-d4055f2b4512",
+      "id": "a2cff474-b392-40d1-ab3f-b0d4b568c5b4",
       "key": "id",
       "value": ""
     },
     {
-      "id": "13c08b48-c0c9-421a-b660-aee915145af4",
+      "id": "5a0dcbd2-5aca-40d9-bd65-633b78c84155",
       "key": "username",
       "value": ""
     },
     {
-      "id": "9256eeb5-d9e3-4ca9-b48e-6eeefd4ed16e",
+      "id": "b6390a1d-9c1f-4672-9a57-a19300a4ca36",
       "key": "firstName",
       "value": ""
     },
     {
-      "id": "1684a2c5-dcf3-461e-9486-7a75da25bd75",
+      "id": "d1285c40-5a57-44f7-acd0-004183595fa7",
       "key": "lastName",
       "value": ""
     },
     {
-      "id": "8fbcceb9-c1b7-44db-849e-f4a5d21350c6",
+      "id": "39d4c887-c909-4b18-928f-a54e17a85fcf",
       "key": "email",
       "value": ""
     },
     {
-      "id": "f68af075-3380-4db3-b463-d4a09721223f",
+      "id": "9f67ee59-35ac-429c-9ac3-053419b1824a",
       "key": "password",
       "value": ""
     },
     {
-      "id": "bf708345-7822-415e-96e5-2548af25879a",
+      "id": "e6fecbc0-8c9b-4dd8-b4c4-3fdcda3117d4",
       "key": "phone",
       "value": ""
     },
     {
-      "id": "e9d0240c-4730-4ddf-b4fc-9599dc838274",
+      "id": "999b1b37-a2b6-49ac-9c36-038bc1bcd00f",
       "key": "userStatus",
       "value": ""
     }
